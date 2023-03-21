@@ -1,0 +1,63 @@
+body {
+  height: 100vh;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+.container {
+  background-color: rgb(81, 178, 173);
+  border-radius: 20px;
+
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  padding: 30px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  font-size: 20px;
+  border-color: gold;
+}
+
+fieldset > div {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  background-color: ghostwhite;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+select {
+  flex: 0.55
+}
+
+#cardType {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  margin: 0px;
+  /* padding: 10px; */
+}
+
+#submit {
+  width: 150px;
+  align-self: center;
+  margin-top: 20px;
+}
