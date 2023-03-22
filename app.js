@@ -1,6 +1,22 @@
 
 let inputValues = []
 
+const form = document.getElementById('form')
+
+const nameSpan = document.querySelector('#nameSpan')
+const emailSpan = document.querySelector('#emailSpan')
+const phoneSpan = document.querySelector('#phoneSpan')
+const addressSpan = document.querySelector('#addressSpan')
+const postCodeSpan = document.querySelector('#postCodeSpan')
+const stateSpan = document.querySelector('#stateSpan')
+const cardNumberSpan = document.querySelector('#cardNumberSpan')
+const cardTypeSpan = document.querySelector('#cardTypeSpan')
+const ccvSpan = document.querySelector('#ccvSpan')
+const expirationSpan = document.querySelector('#expirationSpan')
+const cardNameSpan = document.querySelector('#cardNameSpan')
+
+form.addEventListener('blur', validateForm(e))
+
 
 function validateForm(e) {
   let nameInput = document.querySelector('#name').value
@@ -11,6 +27,8 @@ function validateForm(e) {
   let stateSelect = document.querySelector('select[name="state"]').value
   let selectedCard = document.querySelector('input[name="card"]:checked').value
   let cardNumber = document.querySelector('#cardNumber').value
+  let cardNameInput = document.querySelector('#cardName').value
+  let expirationInput = document.querySelector('#expiration').value
   let ccvInput = document.querySelector('#ccv').value
 
 
@@ -26,36 +44,46 @@ function validateForm(e) {
     /^3[47][0-9]{13}$/,  // American Express
     /^6(?:011|5[0-9][0-9])[0-9]{12}$/  // Discover
   ];
+  let expirationRegEx = /^(0[1-9]|1[0-2])\/[0-9]{2}$/
 
+  nameSpan.innerText = ""
+  emailSpan.innerText = ""
+  phoneSpan.innerText = ""
+  addressSpan.innerText = ""
+  postCodeSpan.innerText = ""
+  cardNameSpan.innerText = ""
+  cardNumberSpan.innerText = ""
+  ccvSpan.innerText = ""
+  expirationSpan.innerText = ""
 
 
   if (!nameRegEx.test(nameInput)) {
     e.preventDefault()
-    alert('Please enter a valid name.')
+    nameSpan.innerText = 'Please enter a valid name.'
     return false
   }
 
   if (!emailRegEx.test(emailInput)) {
     e.preventDefault()
-    alert('Please enter a valid email address.')
+    emailSpan.innerText = 'Please enter a valid email address.'
     return false
   }
 
   if (!phoneRegEx.test(phoneInput)) {
     e.preventDefault()
-    alert('Please enter a valid phone number.')
+    phoneSpan.innerText = 'Please enter a valid phone number.'
     return false
   }
 
   if (!addressRegEX.test(addressInput)) {
     e.preventDefault()
-    alert('Please enter a valid address.')
+    addressSpan.innerText = 'Please enter a valid address.'
     return false
   }
 
   if (!postCodeRegEx.test(postCodeInput)) {
     e.preventDefault()
-    alert('Please enter a valid post code.')
+    postCodeSpan.innerText = 'Please enter a valid post code.'
     return false
   }
 
@@ -63,7 +91,7 @@ function validateForm(e) {
     case 'visa':
       if (!cardRegex[0].test(cardNumber)){
         e.preventDefault()
-        alert('Please enter a valid Visa Card number.')
+        cardNumberSpan.innerText = 'Please enter a valid Visa Card number.'
         return false
       }
       break
@@ -71,7 +99,7 @@ function validateForm(e) {
     case 'masterCard': 
       if (!cardRegex[1].test(cardNumber)){
         e.preventDefault()
-        alert('Please enter a valid Master Card number.')
+        cardNumberSpan.innerText = 'Please enter a valid Master Card number.'
         return false
       }
       break
@@ -79,7 +107,7 @@ function validateForm(e) {
     case 'amEx': 
       if (!cardRegex[2].test(cardNumber)){
         e.preventDefault()
-        alert('Please enter a valid American Express Card number.')
+        cardNumberSpan.innerText = 'Please enter a valid American Express Card number.'
         return false
       }
       break
@@ -87,7 +115,7 @@ function validateForm(e) {
     case 'discover': 
       if (!cardRegex[3].test(cardNumber)){
         e.preventDefault()
-        alert('Please enter a valid Discover Card number.')
+        cardNumberSpan.innerText = 'Please enter a valid Discover Card number.'
         return false
       }
       break
@@ -95,7 +123,13 @@ function validateForm(e) {
 
   if (!ccvRegEx.test(ccvInput)) {
     e.preventDefault()
-    alert('Please enter a valid security code.')
+    ccvSpan.innerText = 'Please enter a valid security code.'
+    return false
+  }
+
+  if (!expirationRegEx.test(expirationInput)) {
+    e.preventDefault()
+    expirationSpan.innerText = 'Please enter a valid expiration date.'
     return false
   }
 

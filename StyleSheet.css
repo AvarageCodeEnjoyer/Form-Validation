@@ -7,14 +7,11 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
-
 .container {
   background-color: rgb(81, 178, 173);
   border-radius: 20px;
-
   font-family: 'Ubuntu', sans-serif;
 }
-
 
 form {
   display: flex;
@@ -48,6 +45,12 @@ select {
   flex: 0.55
 }
 
+span {
+  font-size: 10px;
+  color: red;
+  align-self: center;
+}
+
 #cardType {
   display: flex;
   justify-content: space-evenly;
@@ -60,4 +63,6 @@ select {
   width: 150px;
   align-self: center;
   margin-top: 20px;
+  background-color:rgb(130, 170, 120);
+  border-radius: 10px;
 }
