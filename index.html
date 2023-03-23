@@ -14,7 +14,8 @@
 </head>
 <body>
 	<div class="container">
-		<form onsubmit="validateForm(event)">
+		<form>
+			<span id="inputFail"></span>
 			<fieldset> 
 				<legend>Name</legend> 
 				<div>
@@ -29,7 +30,7 @@
 				<span id="emailSpan"></span>
 				<div>
 					<label for="phone">Phone #</label>
-					<input type="tel" id="phone" placeholder="(###)-###-####">
+					<input type="tel" id="phone" placeholder="##########">
 				</div>
 				<span id="phoneSpan"></span>
 			</fieldset>
@@ -138,7 +139,7 @@
 				<span id="ccvSpan"></span>
 				<div>
 					<label for="expiration">Expiration</label>
-					<input type="number" id="expiration" placeholder="09/11">
+					<input type="text" id="expiration" placeholder="09/11" maxlength="5">
 				</div>
 				<span id="expirationSpan"></span>
 				<div>
@@ -148,7 +149,7 @@
 				<span id="cardNameSpan"></span>
 			</fieldset>
 
-			<input type="submit" name="submit" id="submit">
+			<button type="button" name="submit" id="submit" onclick="validateInputs(event)"><b>Submit Form</b></button>
 		</form>
 	</div>
 </body>

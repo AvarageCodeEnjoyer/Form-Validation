@@ -56,11 +56,11 @@ span {
   justify-content: space-evenly;
   flex: 1;
   margin: 0px;
-  /* padding: 10px; */
 }
 
 #submit {
   width: 150px;
+  height: 25px;
   align-self: center;
   margin-top: 20px;
   background-color:rgb(130, 170, 120);
